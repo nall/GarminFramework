@@ -1,0 +1,20 @@
+GPhy
+	initialize: initializes the device
+	sendPacket: sends 1 logical packet to the device
+	recvPacket: receives 1 full logical packet from the device
+
+GUSBPhy<GPhy>
+	sendPacketAtom: sends up to BUFFER_MAX_SIZE bytes
+	recvPacketAtom: receives 1 transmission from the device
+
+GInterface [takes a GPhy]
+	initialize: initialize the device
+	isProtocolSupported: returns true if the specified protocol is supported by
+						 the device
+	issueCommand: issues the specified GCommand to the device
+	getDeviceInfoString: returns the device product string
+	getDeviceExtInfoStrings: returns an array of the device "extra" info strings
+	getSupportedProtocols: returns an array of protocols (GCommands?) supported
+						   by the device
+						   
+
